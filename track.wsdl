@@ -1,0 +1,1238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:s0="http://www.xmlforasp.net" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Track and Trace Web Services</wsdl:documentation>
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.xmlforasp.net">
+      <s:element name="GetItems">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lang" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Barcodes" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetItemsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetItemsResult" type="s0:TrackItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="TrackItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ItemsData" type="s0:ArrayOfItems" />
+          <s:element minOccurs="1" maxOccurs="1" name="TrackCountData" type="s0:TrackCount" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfItems">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Items" type="s0:Items" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Items">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Barcode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StatusName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DateTime" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Signature" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Location" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DeliveryDateTime" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PostCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SigCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HexCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PostGPS" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CountryID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ItemRow" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FlagRow" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TrackCount">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="TrackDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TrackStatus" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CountNumber" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="PublicKeySoapHeader" type="tns:PublicKeySoapHeader" />
+      <s:complexType name="PublicKeySoapHeader">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="PublicXmlKey" type="s:string" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
+      <s:element name="GetLocationClosest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="loc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="point" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLocationClosestResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLocationClosestResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SmartPhoneRegister">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="deviceType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="deviceid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tokenkey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="itemid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Opt1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Opt2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Opt3" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SmartPhoneRegisterResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SmartPhoneRegisterResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SmartPhoneRegisters">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="deviceType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="deviceid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tokenkey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="itemid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Opt1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Opt2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Opt3" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Opt4" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Opt5" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Opt6" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Opt7" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Opt8" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Opt9" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Opt10" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SmartPhoneRegistersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SmartPhoneRegistersResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SmartPhoneUpdateOpt">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="deviceType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="deviceid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tokenkey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="itemid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Opt1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Opt2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Opt3" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SmartPhoneUpdateOptResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SmartPhoneUpdateOptResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SmartPhoneUpdateOpts">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="deviceType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="deviceid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tokenkey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="itemid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Opt1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Opt2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Opt3" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Opt4" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Opt5" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Opt6" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Opt7" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Opt8" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Opt9" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Opt10" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SmartPhoneUpdateOptsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SmartPhoneUpdateOptsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SmartPhoneUnRegister">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="deviceType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="deviceid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tokenkey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="itemid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SmartPhoneUnRegisterResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SmartPhoneUnRegisterResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SmartPhoneUnRegisters">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="deviceType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="deviceid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tokenkey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="itemid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Opt1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Opt2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Opt3" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Opt4" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Opt5" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Opt6" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Opt7" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Opt8" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Opt9" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Opt10" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SmartPhoneUnRegistersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SmartPhoneUnRegistersResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SmartPhoneUpdateRegister">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="deviceType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="deviceid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tokenkey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="newtokenkey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="itemid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SmartPhoneUpdateRegisterResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SmartPhoneUpdateRegisterResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SmartPhoneUpdateRegisters">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="deviceType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="deviceid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tokenkey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="newtokenkey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="itemid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Opt1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Opt2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Opt3" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Opt4" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Opt5" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Opt6" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Opt7" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Opt8" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Opt9" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Opt10" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SmartPhoneUpdateRegistersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SmartPhoneUpdateRegistersResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ItemDuplicate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="deviceType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="deviceid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TokenKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="itemid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ItemDuplicateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ItemDuplicateResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MessageBoard">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="deviceType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lastmessage" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lang" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MessageBoardResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MessageBoardResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MessageBoardJson">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="deviceType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lastmessage" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lang" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MessageBoardJsonResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MessageBoardJsonResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SmartPhoneSyncUpload">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="deviceType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="facebookID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="syncContent" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="packegeType" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SmartPhoneSyncUploadResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SmartPhoneSyncUploadResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SmartPhoneSyncDownload">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="deviceType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="facebookID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="packegeType" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SmartPhoneSyncDownloadResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SmartPhoneSyncDownloadResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetItemsXML">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lang" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Barcodes" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetItemsXMLResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetItemsXMLResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetItemsJson">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lang" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Barcodes" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetItemsJsonResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetItemsJsonResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SmartPhoneGetCountryJson">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="deviceType" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SmartPhoneGetCountryJsonResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SmartPhoneGetCountryJsonResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SmartPhoneGetPostLocationJson">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="deviceType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="keyword" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SmartPhoneGetPostLocationJsonResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SmartPhoneGetPostLocationJsonResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SmartPhoneGetRateWeightJson">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="deviceType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="country" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="servicetype" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="weight" type="s:float" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SmartPhoneGetRateWeightJsonResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SmartPhoneGetRateWeightJsonResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SmartPhoneGetServicesJson">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="deviceType" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SmartPhoneGetServicesJsonResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SmartPhoneGetServicesJsonResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SmartPhoneGetRateAllJson">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="deviceType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="country" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="weight" type="s:float" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SmartPhoneGetRateAllJsonResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SmartPhoneGetRateAllJsonResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetItemsSoapIn">
+    <wsdl:part name="parameters" element="s0:GetItems" />
+  </wsdl:message>
+  <wsdl:message name="GetItemsSoapOut">
+    <wsdl:part name="parameters" element="s0:GetItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetItemsPublicKeySoapHeader">
+    <wsdl:part name="PublicKeySoapHeader" element="tns:PublicKeySoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetLocationClosestSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLocationClosest" />
+  </wsdl:message>
+  <wsdl:message name="GetLocationClosestSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLocationClosestResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLocationClosestPublicKeySoapHeader">
+    <wsdl:part name="PublicKeySoapHeader" element="tns:PublicKeySoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="SmartPhoneRegisterSoapIn">
+    <wsdl:part name="parameters" element="tns:SmartPhoneRegister" />
+  </wsdl:message>
+  <wsdl:message name="SmartPhoneRegisterSoapOut">
+    <wsdl:part name="parameters" element="tns:SmartPhoneRegisterResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartPhoneRegisterPublicKeySoapHeader">
+    <wsdl:part name="PublicKeySoapHeader" element="tns:PublicKeySoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="SmartPhoneRegistersSoapIn">
+    <wsdl:part name="parameters" element="tns:SmartPhoneRegisters" />
+  </wsdl:message>
+  <wsdl:message name="SmartPhoneRegistersSoapOut">
+    <wsdl:part name="parameters" element="tns:SmartPhoneRegistersResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartPhoneRegistersPublicKeySoapHeader">
+    <wsdl:part name="PublicKeySoapHeader" element="tns:PublicKeySoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="SmartPhoneUpdateOptSoapIn">
+    <wsdl:part name="parameters" element="tns:SmartPhoneUpdateOpt" />
+  </wsdl:message>
+  <wsdl:message name="SmartPhoneUpdateOptSoapOut">
+    <wsdl:part name="parameters" element="tns:SmartPhoneUpdateOptResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartPhoneUpdateOptPublicKeySoapHeader">
+    <wsdl:part name="PublicKeySoapHeader" element="tns:PublicKeySoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="SmartPhoneUpdateOptsSoapIn">
+    <wsdl:part name="parameters" element="tns:SmartPhoneUpdateOpts" />
+  </wsdl:message>
+  <wsdl:message name="SmartPhoneUpdateOptsSoapOut">
+    <wsdl:part name="parameters" element="tns:SmartPhoneUpdateOptsResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartPhoneUpdateOptsPublicKeySoapHeader">
+    <wsdl:part name="PublicKeySoapHeader" element="tns:PublicKeySoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="SmartPhoneUnRegisterSoapIn">
+    <wsdl:part name="parameters" element="tns:SmartPhoneUnRegister" />
+  </wsdl:message>
+  <wsdl:message name="SmartPhoneUnRegisterSoapOut">
+    <wsdl:part name="parameters" element="tns:SmartPhoneUnRegisterResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartPhoneUnRegisterPublicKeySoapHeader">
+    <wsdl:part name="PublicKeySoapHeader" element="tns:PublicKeySoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="SmartPhoneUnRegistersSoapIn">
+    <wsdl:part name="parameters" element="tns:SmartPhoneUnRegisters" />
+  </wsdl:message>
+  <wsdl:message name="SmartPhoneUnRegistersSoapOut">
+    <wsdl:part name="parameters" element="tns:SmartPhoneUnRegistersResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartPhoneUnRegistersPublicKeySoapHeader">
+    <wsdl:part name="PublicKeySoapHeader" element="tns:PublicKeySoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="SmartPhoneUpdateRegisterSoapIn">
+    <wsdl:part name="parameters" element="tns:SmartPhoneUpdateRegister" />
+  </wsdl:message>
+  <wsdl:message name="SmartPhoneUpdateRegisterSoapOut">
+    <wsdl:part name="parameters" element="tns:SmartPhoneUpdateRegisterResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartPhoneUpdateRegisterPublicKeySoapHeader">
+    <wsdl:part name="PublicKeySoapHeader" element="tns:PublicKeySoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="SmartPhoneUpdateRegistersSoapIn">
+    <wsdl:part name="parameters" element="tns:SmartPhoneUpdateRegisters" />
+  </wsdl:message>
+  <wsdl:message name="SmartPhoneUpdateRegistersSoapOut">
+    <wsdl:part name="parameters" element="tns:SmartPhoneUpdateRegistersResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartPhoneUpdateRegistersPublicKeySoapHeader">
+    <wsdl:part name="PublicKeySoapHeader" element="tns:PublicKeySoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="ItemDuplicateSoapIn">
+    <wsdl:part name="parameters" element="tns:ItemDuplicate" />
+  </wsdl:message>
+  <wsdl:message name="ItemDuplicateSoapOut">
+    <wsdl:part name="parameters" element="tns:ItemDuplicateResponse" />
+  </wsdl:message>
+  <wsdl:message name="ItemDuplicatePublicKeySoapHeader">
+    <wsdl:part name="PublicKeySoapHeader" element="tns:PublicKeySoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="MessageBoardSoapIn">
+    <wsdl:part name="parameters" element="tns:MessageBoard" />
+  </wsdl:message>
+  <wsdl:message name="MessageBoardSoapOut">
+    <wsdl:part name="parameters" element="tns:MessageBoardResponse" />
+  </wsdl:message>
+  <wsdl:message name="MessageBoardPublicKeySoapHeader">
+    <wsdl:part name="PublicKeySoapHeader" element="tns:PublicKeySoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="MessageBoardJsonSoapIn">
+    <wsdl:part name="parameters" element="tns:MessageBoardJson" />
+  </wsdl:message>
+  <wsdl:message name="MessageBoardJsonSoapOut">
+    <wsdl:part name="parameters" element="tns:MessageBoardJsonResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartPhoneSyncUploadSoapIn">
+    <wsdl:part name="parameters" element="tns:SmartPhoneSyncUpload" />
+  </wsdl:message>
+  <wsdl:message name="SmartPhoneSyncUploadSoapOut">
+    <wsdl:part name="parameters" element="tns:SmartPhoneSyncUploadResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartPhoneSyncUploadPublicKeySoapHeader">
+    <wsdl:part name="PublicKeySoapHeader" element="tns:PublicKeySoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="SmartPhoneSyncDownloadSoapIn">
+    <wsdl:part name="parameters" element="tns:SmartPhoneSyncDownload" />
+  </wsdl:message>
+  <wsdl:message name="SmartPhoneSyncDownloadSoapOut">
+    <wsdl:part name="parameters" element="tns:SmartPhoneSyncDownloadResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartPhoneSyncDownloadPublicKeySoapHeader">
+    <wsdl:part name="PublicKeySoapHeader" element="tns:PublicKeySoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetItemsXMLSoapIn">
+    <wsdl:part name="parameters" element="tns:GetItemsXML" />
+  </wsdl:message>
+  <wsdl:message name="GetItemsXMLSoapOut">
+    <wsdl:part name="parameters" element="tns:GetItemsXMLResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetItemsXMLPublicKeySoapHeader">
+    <wsdl:part name="PublicKeySoapHeader" element="tns:PublicKeySoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetItemsJsonSoapIn">
+    <wsdl:part name="parameters" element="tns:GetItemsJson" />
+  </wsdl:message>
+  <wsdl:message name="GetItemsJsonSoapOut">
+    <wsdl:part name="parameters" element="tns:GetItemsJsonResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetItemsJsonPublicKeySoapHeader">
+    <wsdl:part name="PublicKeySoapHeader" element="tns:PublicKeySoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="SmartPhoneGetCountryJsonSoapIn">
+    <wsdl:part name="parameters" element="tns:SmartPhoneGetCountryJson" />
+  </wsdl:message>
+  <wsdl:message name="SmartPhoneGetCountryJsonSoapOut">
+    <wsdl:part name="parameters" element="tns:SmartPhoneGetCountryJsonResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartPhoneGetCountryJsonPublicKeySoapHeader">
+    <wsdl:part name="PublicKeySoapHeader" element="tns:PublicKeySoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="SmartPhoneGetPostLocationJsonSoapIn">
+    <wsdl:part name="parameters" element="tns:SmartPhoneGetPostLocationJson" />
+  </wsdl:message>
+  <wsdl:message name="SmartPhoneGetPostLocationJsonSoapOut">
+    <wsdl:part name="parameters" element="tns:SmartPhoneGetPostLocationJsonResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartPhoneGetPostLocationJsonPublicKeySoapHeader">
+    <wsdl:part name="PublicKeySoapHeader" element="tns:PublicKeySoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="SmartPhoneGetRateWeightJsonSoapIn">
+    <wsdl:part name="parameters" element="tns:SmartPhoneGetRateWeightJson" />
+  </wsdl:message>
+  <wsdl:message name="SmartPhoneGetRateWeightJsonSoapOut">
+    <wsdl:part name="parameters" element="tns:SmartPhoneGetRateWeightJsonResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartPhoneGetRateWeightJsonPublicKeySoapHeader">
+    <wsdl:part name="PublicKeySoapHeader" element="tns:PublicKeySoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="SmartPhoneGetServicesJsonSoapIn">
+    <wsdl:part name="parameters" element="tns:SmartPhoneGetServicesJson" />
+  </wsdl:message>
+  <wsdl:message name="SmartPhoneGetServicesJsonSoapOut">
+    <wsdl:part name="parameters" element="tns:SmartPhoneGetServicesJsonResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartPhoneGetServicesJsonPublicKeySoapHeader">
+    <wsdl:part name="PublicKeySoapHeader" element="tns:PublicKeySoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="SmartPhoneGetRateAllJsonSoapIn">
+    <wsdl:part name="parameters" element="tns:SmartPhoneGetRateAllJson" />
+  </wsdl:message>
+  <wsdl:message name="SmartPhoneGetRateAllJsonSoapOut">
+    <wsdl:part name="parameters" element="tns:SmartPhoneGetRateAllJsonResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartPhoneGetRateAllJsonPublicKeySoapHeader">
+    <wsdl:part name="PublicKeySoapHeader" element="tns:PublicKeySoapHeader" />
+  </wsdl:message>
+  <wsdl:portType name="Track_x0020_and_x0020_Trace_x0020_ServiceSoap">
+    <wsdl:operation name="GetItems">
+      <wsdl:input message="tns:GetItemsSoapIn" />
+      <wsdl:output message="tns:GetItemsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLocationClosest">
+      <wsdl:input message="tns:GetLocationClosestSoapIn" />
+      <wsdl:output message="tns:GetLocationClosestSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SmartPhoneRegister">
+      <wsdl:input message="tns:SmartPhoneRegisterSoapIn" />
+      <wsdl:output message="tns:SmartPhoneRegisterSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SmartPhoneRegisters">
+      <wsdl:input message="tns:SmartPhoneRegistersSoapIn" />
+      <wsdl:output message="tns:SmartPhoneRegistersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SmartPhoneUpdateOpt">
+      <wsdl:input message="tns:SmartPhoneUpdateOptSoapIn" />
+      <wsdl:output message="tns:SmartPhoneUpdateOptSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SmartPhoneUpdateOpts">
+      <wsdl:input message="tns:SmartPhoneUpdateOptsSoapIn" />
+      <wsdl:output message="tns:SmartPhoneUpdateOptsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SmartPhoneUnRegister">
+      <wsdl:input message="tns:SmartPhoneUnRegisterSoapIn" />
+      <wsdl:output message="tns:SmartPhoneUnRegisterSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SmartPhoneUnRegisters">
+      <wsdl:input message="tns:SmartPhoneUnRegistersSoapIn" />
+      <wsdl:output message="tns:SmartPhoneUnRegistersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SmartPhoneUpdateRegister">
+      <wsdl:input message="tns:SmartPhoneUpdateRegisterSoapIn" />
+      <wsdl:output message="tns:SmartPhoneUpdateRegisterSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SmartPhoneUpdateRegisters">
+      <wsdl:input message="tns:SmartPhoneUpdateRegistersSoapIn" />
+      <wsdl:output message="tns:SmartPhoneUpdateRegistersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ItemDuplicate">
+      <wsdl:input message="tns:ItemDuplicateSoapIn" />
+      <wsdl:output message="tns:ItemDuplicateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MessageBoard">
+      <wsdl:input message="tns:MessageBoardSoapIn" />
+      <wsdl:output message="tns:MessageBoardSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MessageBoardJson">
+      <wsdl:input message="tns:MessageBoardJsonSoapIn" />
+      <wsdl:output message="tns:MessageBoardJsonSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SmartPhoneSyncUpload">
+      <wsdl:input message="tns:SmartPhoneSyncUploadSoapIn" />
+      <wsdl:output message="tns:SmartPhoneSyncUploadSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SmartPhoneSyncDownload">
+      <wsdl:input message="tns:SmartPhoneSyncDownloadSoapIn" />
+      <wsdl:output message="tns:SmartPhoneSyncDownloadSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetItemsXML">
+      <wsdl:input message="tns:GetItemsXMLSoapIn" />
+      <wsdl:output message="tns:GetItemsXMLSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetItemsJson">
+      <wsdl:input message="tns:GetItemsJsonSoapIn" />
+      <wsdl:output message="tns:GetItemsJsonSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SmartPhoneGetCountryJson">
+      <wsdl:input message="tns:SmartPhoneGetCountryJsonSoapIn" />
+      <wsdl:output message="tns:SmartPhoneGetCountryJsonSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SmartPhoneGetPostLocationJson">
+      <wsdl:input message="tns:SmartPhoneGetPostLocationJsonSoapIn" />
+      <wsdl:output message="tns:SmartPhoneGetPostLocationJsonSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SmartPhoneGetRateWeightJson">
+      <wsdl:input message="tns:SmartPhoneGetRateWeightJsonSoapIn" />
+      <wsdl:output message="tns:SmartPhoneGetRateWeightJsonSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SmartPhoneGetServicesJson">
+      <wsdl:input message="tns:SmartPhoneGetServicesJsonSoapIn" />
+      <wsdl:output message="tns:SmartPhoneGetServicesJsonSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SmartPhoneGetRateAllJson">
+      <wsdl:input message="tns:SmartPhoneGetRateAllJsonSoapIn" />
+      <wsdl:output message="tns:SmartPhoneGetRateAllJsonSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="Track_x0020_and_x0020_Trace_x0020_ServiceSoap" type="tns:Track_x0020_and_x0020_Trace_x0020_ServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetItems">
+      <soap:operation soapAction="http://tempuri.org/GetItems" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetItemsPublicKeySoapHeader" part="PublicKeySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLocationClosest">
+      <soap:operation soapAction="http://tempuri.org/GetLocationClosest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetLocationClosestPublicKeySoapHeader" part="PublicKeySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SmartPhoneRegister">
+      <soap:operation soapAction="http://tempuri.org/SmartPhoneRegister" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:SmartPhoneRegisterPublicKeySoapHeader" part="PublicKeySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SmartPhoneRegisters">
+      <soap:operation soapAction="http://tempuri.org/SmartPhoneRegisters" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:SmartPhoneRegistersPublicKeySoapHeader" part="PublicKeySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SmartPhoneUpdateOpt">
+      <soap:operation soapAction="http://tempuri.org/SmartPhoneUpdateOpt" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:SmartPhoneUpdateOptPublicKeySoapHeader" part="PublicKeySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SmartPhoneUpdateOpts">
+      <soap:operation soapAction="http://tempuri.org/SmartPhoneUpdateOpts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:SmartPhoneUpdateOptsPublicKeySoapHeader" part="PublicKeySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SmartPhoneUnRegister">
+      <soap:operation soapAction="http://tempuri.org/SmartPhoneUnRegister" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:SmartPhoneUnRegisterPublicKeySoapHeader" part="PublicKeySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SmartPhoneUnRegisters">
+      <soap:operation soapAction="http://tempuri.org/SmartPhoneUnRegisters" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:SmartPhoneUnRegistersPublicKeySoapHeader" part="PublicKeySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SmartPhoneUpdateRegister">
+      <soap:operation soapAction="http://tempuri.org/SmartPhoneUpdateRegister" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:SmartPhoneUpdateRegisterPublicKeySoapHeader" part="PublicKeySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SmartPhoneUpdateRegisters">
+      <soap:operation soapAction="http://tempuri.org/SmartPhoneUpdateRegisters" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:SmartPhoneUpdateRegistersPublicKeySoapHeader" part="PublicKeySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ItemDuplicate">
+      <soap:operation soapAction="http://tempuri.org/ItemDuplicate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:ItemDuplicatePublicKeySoapHeader" part="PublicKeySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MessageBoard">
+      <soap:operation soapAction="http://tempuri.org/MessageBoard" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:MessageBoardPublicKeySoapHeader" part="PublicKeySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MessageBoardJson">
+      <soap:operation soapAction="http://tempuri.org/MessageBoardJson" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SmartPhoneSyncUpload">
+      <soap:operation soapAction="http://tempuri.org/SmartPhoneSyncUpload" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:SmartPhoneSyncUploadPublicKeySoapHeader" part="PublicKeySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SmartPhoneSyncDownload">
+      <soap:operation soapAction="http://tempuri.org/SmartPhoneSyncDownload" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:SmartPhoneSyncDownloadPublicKeySoapHeader" part="PublicKeySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetItemsXML">
+      <soap:operation soapAction="http://tempuri.org/GetItemsXML" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetItemsXMLPublicKeySoapHeader" part="PublicKeySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetItemsJson">
+      <soap:operation soapAction="http://tempuri.org/GetItemsJson" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetItemsJsonPublicKeySoapHeader" part="PublicKeySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SmartPhoneGetCountryJson">
+      <soap:operation soapAction="http://tempuri.org/SmartPhoneGetCountryJson" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:SmartPhoneGetCountryJsonPublicKeySoapHeader" part="PublicKeySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SmartPhoneGetPostLocationJson">
+      <soap:operation soapAction="http://tempuri.org/SmartPhoneGetPostLocationJson" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:SmartPhoneGetPostLocationJsonPublicKeySoapHeader" part="PublicKeySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SmartPhoneGetRateWeightJson">
+      <soap:operation soapAction="http://tempuri.org/SmartPhoneGetRateWeightJson" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:SmartPhoneGetRateWeightJsonPublicKeySoapHeader" part="PublicKeySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SmartPhoneGetServicesJson">
+      <soap:operation soapAction="http://tempuri.org/SmartPhoneGetServicesJson" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:SmartPhoneGetServicesJsonPublicKeySoapHeader" part="PublicKeySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SmartPhoneGetRateAllJson">
+      <soap:operation soapAction="http://tempuri.org/SmartPhoneGetRateAllJson" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:SmartPhoneGetRateAllJsonPublicKeySoapHeader" part="PublicKeySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="Track_x0020_and_x0020_Trace_x0020_ServiceSoap12" type="tns:Track_x0020_and_x0020_Trace_x0020_ServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetItems">
+      <soap12:operation soapAction="http://tempuri.org/GetItems" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetItemsPublicKeySoapHeader" part="PublicKeySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLocationClosest">
+      <soap12:operation soapAction="http://tempuri.org/GetLocationClosest" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetLocationClosestPublicKeySoapHeader" part="PublicKeySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SmartPhoneRegister">
+      <soap12:operation soapAction="http://tempuri.org/SmartPhoneRegister" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:SmartPhoneRegisterPublicKeySoapHeader" part="PublicKeySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SmartPhoneRegisters">
+      <soap12:operation soapAction="http://tempuri.org/SmartPhoneRegisters" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:SmartPhoneRegistersPublicKeySoapHeader" part="PublicKeySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SmartPhoneUpdateOpt">
+      <soap12:operation soapAction="http://tempuri.org/SmartPhoneUpdateOpt" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:SmartPhoneUpdateOptPublicKeySoapHeader" part="PublicKeySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SmartPhoneUpdateOpts">
+      <soap12:operation soapAction="http://tempuri.org/SmartPhoneUpdateOpts" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:SmartPhoneUpdateOptsPublicKeySoapHeader" part="PublicKeySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SmartPhoneUnRegister">
+      <soap12:operation soapAction="http://tempuri.org/SmartPhoneUnRegister" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:SmartPhoneUnRegisterPublicKeySoapHeader" part="PublicKeySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SmartPhoneUnRegisters">
+      <soap12:operation soapAction="http://tempuri.org/SmartPhoneUnRegisters" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:SmartPhoneUnRegistersPublicKeySoapHeader" part="PublicKeySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SmartPhoneUpdateRegister">
+      <soap12:operation soapAction="http://tempuri.org/SmartPhoneUpdateRegister" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:SmartPhoneUpdateRegisterPublicKeySoapHeader" part="PublicKeySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SmartPhoneUpdateRegisters">
+      <soap12:operation soapAction="http://tempuri.org/SmartPhoneUpdateRegisters" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:SmartPhoneUpdateRegistersPublicKeySoapHeader" part="PublicKeySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ItemDuplicate">
+      <soap12:operation soapAction="http://tempuri.org/ItemDuplicate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ItemDuplicatePublicKeySoapHeader" part="PublicKeySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MessageBoard">
+      <soap12:operation soapAction="http://tempuri.org/MessageBoard" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:MessageBoardPublicKeySoapHeader" part="PublicKeySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MessageBoardJson">
+      <soap12:operation soapAction="http://tempuri.org/MessageBoardJson" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SmartPhoneSyncUpload">
+      <soap12:operation soapAction="http://tempuri.org/SmartPhoneSyncUpload" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:SmartPhoneSyncUploadPublicKeySoapHeader" part="PublicKeySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SmartPhoneSyncDownload">
+      <soap12:operation soapAction="http://tempuri.org/SmartPhoneSyncDownload" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:SmartPhoneSyncDownloadPublicKeySoapHeader" part="PublicKeySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetItemsXML">
+      <soap12:operation soapAction="http://tempuri.org/GetItemsXML" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetItemsXMLPublicKeySoapHeader" part="PublicKeySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetItemsJson">
+      <soap12:operation soapAction="http://tempuri.org/GetItemsJson" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetItemsJsonPublicKeySoapHeader" part="PublicKeySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SmartPhoneGetCountryJson">
+      <soap12:operation soapAction="http://tempuri.org/SmartPhoneGetCountryJson" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:SmartPhoneGetCountryJsonPublicKeySoapHeader" part="PublicKeySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SmartPhoneGetPostLocationJson">
+      <soap12:operation soapAction="http://tempuri.org/SmartPhoneGetPostLocationJson" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:SmartPhoneGetPostLocationJsonPublicKeySoapHeader" part="PublicKeySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SmartPhoneGetRateWeightJson">
+      <soap12:operation soapAction="http://tempuri.org/SmartPhoneGetRateWeightJson" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:SmartPhoneGetRateWeightJsonPublicKeySoapHeader" part="PublicKeySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SmartPhoneGetServicesJson">
+      <soap12:operation soapAction="http://tempuri.org/SmartPhoneGetServicesJson" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:SmartPhoneGetServicesJsonPublicKeySoapHeader" part="PublicKeySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SmartPhoneGetRateAllJson">
+      <soap12:operation soapAction="http://tempuri.org/SmartPhoneGetRateAllJson" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:SmartPhoneGetRateAllJsonPublicKeySoapHeader" part="PublicKeySoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Track_x0020_and_x0020_Trace_x0020_Service">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Track and Trace Web Services</wsdl:documentation>
+    <wsdl:port name="Track_x0020_and_x0020_Trace_x0020_ServiceSoap" binding="tns:Track_x0020_and_x0020_Trace_x0020_ServiceSoap">
+      <soap:address location="http://track.thailandpost.co.th/TTSPSW/track.asmx" />
+    </wsdl:port>
+    <wsdl:port name="Track_x0020_and_x0020_Trace_x0020_ServiceSoap12" binding="tns:Track_x0020_and_x0020_Trace_x0020_ServiceSoap12">
+      <soap12:address location="http://track.thailandpost.co.th/TTSPSW/track.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

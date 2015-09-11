@@ -1,0 +1,11 @@
+{
+  "name": "thailand-post-api",
+  "description": "unofficial API for Thailand Post",
+  "version": "0.0.0",
+  "author": "Punnawut Khowkittipaiboon <itsKaynine>",
+  "dependencies": {
+  	"lodash": "~2.4.1",
+    "soap": "*",
+    "soap-cookie": "*"
+  }
+}
