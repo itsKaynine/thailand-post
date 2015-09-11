@@ -23,8 +23,8 @@ var defaultArgs = {
 	lastmessage: ""
 };
 
-var PublicXmlKey = "bEn3Kq2pzTiCg/0sObciDQ==";
-var publicKeySoapHeader = '<PublicKeySoapHeader xmlns="http://tempuri.org/"><PublicXmlKey>' + PublicXmlKey + '</PublicXmlKey></PublicKeySoapHeader>';
+var publicXmlKey = "bEn3Kq2pzTiCg/0sObciDQ==";
+var publicKeySoapHeader = '<PublicKeySoapHeader xmlns="http://tempuri.org/"><PublicXmlKey>' + publicXmlKey + '</PublicXmlKey></PublicKeySoapHeader>';
 
 soap.createClient(url, options, function(err, client) {
 	client.setSecurity(new soap.ClientSSLSecurity('', '', sslOptions));
