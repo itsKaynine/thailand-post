@@ -14,8 +14,8 @@ function generateXmlKey(key, data) {
   return crypted;
 }
 
-// "https://track.thailandpost.co.th/TTSPSW/track.asmx?WSDL"
-var url = "track.wsdl";
+var url = "http://track.thailandpost.co.th/TTSPSW/track.asmx?WSDL";
+//var url = "track.wsdl";
 
 var options = {
 	endpoint: "https://track.thailandpost.co.th/TTSPSW/track.asmx"
