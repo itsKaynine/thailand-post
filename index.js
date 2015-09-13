@@ -1,6 +1,18 @@
 var soap = require('soap');
 var Cookie = require('soap-cookie');
 var CustomSSLSecurity = require('./CustomSSLSecurity');
+var dateFormat = require('dateformat');
+var crypto = require("crypto");
+
+var AES_KEY = "2847291740385938";
+
+function generateXmlKey(key, data) {
+  var cipher = crypto.createCipheriv('aes-128-cbc', key, String.fromCharCode(0).repeat(key.length));
+  var crypted = cipher.update(data, 'utf-8', 'base64');
+  crypted += cipher.final('base64');
+
+  return crypted;
+}
 
 // "https://track.thailandpost.co.th/TTSPSW/track.asmx?WSDL"
 var url = "track.wsdl";
@@ -23,7 +35,8 @@ var defaultArgs = {
 	lastmessage: ""
 };
 
-var publicXmlKey = "bEn3Kq2pzTiCg/0sObciDQ==";
+var aesValue = dateFormat(new Date(), "yyyymmddHH");
+var publicXmlKey = generateXmlKey(AES_KEY, aesValue);
 var publicKeySoapHeader = '<PublicKeySoapHeader xmlns="http://tempuri.org/"><PublicXmlKey>' + publicXmlKey + '</PublicXmlKey></PublicKeySoapHeader>';
 
 soap.createClient(url, options, function(err, client) {
@@ -61,6 +74,14 @@ soap.createClient(url, options, function(err, client) {
 
 			var jsonResult = JSON.parse(result.GetItemsJsonResult);
 	  		console.log(jsonResult);
+	  	});
+
+	  	client.GetItems(args2, function(err, result) {
+			if (err) {
+				return console.log(err);
+			}
+
+			console.log(result.GetItemsResult.ItemsData.Items);
 	  	});
 	});
 });
