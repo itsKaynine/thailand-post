@@ -43,14 +43,6 @@ new TrackService().init(function(err, serv) {
 		console.log(result);
 	});
 
-	serv.getRates("TH", "1", 0.05, function(err, result) {
-		if (err) {
-			return console.log(err);
-		}
-
-		console.log(result);
-	});
-
 	serv.getAllLocations(function(err, result) {
 		if (err) {
 			return console.log(err);
