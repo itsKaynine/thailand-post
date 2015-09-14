@@ -11,6 +11,14 @@ new TrackService().init(function(err, serv) {
 		console.log(result);
 	});
 
+	serv.getCountries(function(err, result) {
+		if (err) {
+			return console.log(err);
+		}
+
+		console.log(result);
+	});
+
 	serv.getServices(function(err, result) {
 		if (err) {
 			return console.log(err);
@@ -31,7 +39,7 @@ new TrackService().init(function(err, serv) {
 		if (err) {
 			return console.log(err);
 		}
-		
+
 		console.log(result);
 	});
 });
