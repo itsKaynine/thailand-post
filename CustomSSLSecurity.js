@@ -1,3 +1,13 @@
+/*
+-- Credits
+This file has been adapted from an open source project.
+You can find the source code of their open source projects along with license information below.
+
+Project: SOAP Cookie Authentication https://github.com/shanestillwell/soap-cookie
+Author: Shane A. Stillwell <shanestillwell@gmail.com>
+License: "BSD-2-Clause"
+*/
+
 'use strict';
 
 var fs = require('fs')
