@@ -27,7 +27,7 @@ new TrackService().init(function(err, serv) {
 		console.log(result);
 	});
 
-	serv.getAllRates("TH", 0.05, function(err, result) {
+	serv.getRates("TH", 30, function(err, result) {
 		if (err) {
 			return console.log(err);
 		}
@@ -35,7 +35,7 @@ new TrackService().init(function(err, serv) {
 		console.log(result);
 	});
 
-	serv.getRates("TH", "1", 0.05, function(err, result) {
+	serv.getRatesByService("1", "TH", 120, function(err, result) {
 		if (err) {
 			return console.log(err);
 		}
