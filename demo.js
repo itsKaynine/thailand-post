@@ -51,6 +51,14 @@ new TrackService().init(function(err, serv) {
 		console.log(result);
 	});
 
+	serv.getAllLocations(function(err, result) {
+		if (err) {
+			return console.log(err);
+		}
+
+		console.log(result);
+	});
+
 	serv.searchLocation("คลอง", function(err, result) {
 		if (err) {
 			return console.log(err);
