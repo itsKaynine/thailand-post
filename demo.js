@@ -14,4 +14,8 @@ new TrackService().init(function(err, serv) {
 	serv.getServices(function(err, result) {
 		console.log(result);
 	});
+
+	serv.getRates("TH", 0.05, function(err, result) {
+		console.log(result);
+	});
 });
