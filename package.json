@@ -6,7 +6,6 @@
   "dependencies": {
   	"dateformat": "*",
 	"lodash": "~2.4.1",
-	"soap": "*",
-	"soap-cookie": "*"
+	"soap": "*"
   }
 }

@@ -71,7 +71,7 @@ function CustomSSLSecurity(headers, key, cert, ca, defaults) {
  */
 CustomSSLSecurity.prototype.addHeaders = function(headers) {
   headers['Cookie'] = this.cookies;
-  headers['User-Agent'] = "TTPTracker/1.8.2 CFNetwork/711.3.18 Darwin/14.0.0";
+  headers['User-Agent'] = this.defaults.userAgent;
 };
 
 CustomSSLSecurity.prototype.addOptions = function(options) {
@@ -99,10 +99,9 @@ CustomSSLSecurity.prototype.toXML = function() {
  * @returns {String}
  */
 CustomSSLSecurity.prototype.getCookies = function(headers) {
-
   // Nothing to do
   if (!headers) {
-    return '';
+    return null;
   }
 
   var cookies = [],

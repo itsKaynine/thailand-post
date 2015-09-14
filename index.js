@@ -1,5 +1,4 @@
 var soap = require('soap');
-var Cookie = require('soap-cookie');
 var CustomSSLSecurity = require('./CustomSSLSecurity');
 var dateFormat = require('dateformat');
 var crypto = require("crypto");
@@ -22,6 +21,7 @@ var options = {
 };
 
 var sslOptions = {
+	userAgent: "TTPTracker/1.8.2 CFNetwork/711.3.18 Darwin/14.0.0",
 	rejectUnauthorized: false,
 	strictSSL: false,
 	//secureOptions: constants.SSL_OP_NO_TLSv1_2
@@ -40,7 +40,7 @@ var publicXmlKey = generateXmlKey(AES_KEY, aesValue);
 var publicKeySoapHeader = '<PublicKeySoapHeader xmlns="http://tempuri.org/"><PublicXmlKey>' + publicXmlKey + '</PublicXmlKey></PublicKeySoapHeader>';
 
 soap.createClient(url, options, function(err, client) {
-	client.setSecurity(new soap.ClientSSLSecurity('', '', sslOptions));
+	client.setSecurity(new CustomSSLSecurity(client.lastResponseHeaders, '', '', sslOptions));
 	client.addSoapHeader({});
 	client.getSoapHeaders()[0] = publicKeySoapHeader;
 
