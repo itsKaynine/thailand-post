@@ -1,17 +1,8 @@
+var constants = require('constants');
 var soap = require('soap');
-var CustomSSLSecurity = require('./CustomSSLSecurity');
-var dateFormat = require('dateformat');
-var crypto = require("crypto");
 
-var AES_KEY = "2847291740385938";
-
-function generateXmlKey(key, data) {
-  var cipher = crypto.createCipheriv('aes-128-cbc', key, String.fromCharCode(0).repeat(key.length));
-  var crypted = cipher.update(data, 'utf-8', 'base64');
-  crypted += cipher.final('base64');
-
-  return crypted;
-}
+var CustomSSLSecurity = require('./lib/CustomSSLSecurity');
+var keygen = require('./lib/keygen')
 
 var url = "http://track.thailandpost.co.th/TTSPSW/track.asmx?WSDL";
 //var url = "track.wsdl";
@@ -22,9 +13,9 @@ var options = {
 
 var sslOptions = {
 	userAgent: "TTPTracker/1.8.2 CFNetwork/711.3.18 Darwin/14.0.0",
+	secureOptions: constants.SSL_OP_NO_TLSv1_2,
 	rejectUnauthorized: false,
-	strictSSL: false,
-	//secureOptions: constants.SSL_OP_NO_TLSv1_2
+	strictSSL: false
 };
 
 var defaultArgs = {
@@ -35,8 +26,7 @@ var defaultArgs = {
 	lastmessage: ""
 };
 
-var aesValue = dateFormat(new Date(), "yyyymmddHH");
-var publicXmlKey = generateXmlKey(AES_KEY, aesValue);
+var publicXmlKey = keygen.generateXmlKey();
 var publicKeySoapHeader = '<PublicKeySoapHeader xmlns="http://tempuri.org/"><PublicXmlKey>' + publicXmlKey + '</PublicXmlKey></PublicKeySoapHeader>';
 
 soap.createClient(url, options, function(err, client) {
@@ -56,7 +46,7 @@ soap.createClient(url, options, function(err, client) {
 		user: defaultArgs.user,
 		password: defaultArgs.password,
 		lang: defaultArgs.lang,
-		Barcodes: ""
+		Barcodes: "EN331755897TH"
 	};
 
 	client.MessageBoardJson(args1, function(err, result) {
