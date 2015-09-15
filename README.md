@@ -39,7 +39,7 @@ serv.getItem(barcode, function(err, result) {
 Multiple items
 
 ```js
-var barcodes = ["EN331755897TH", "EN331755897TH"];
+var barcodes = ["EN331755897TH", "RI598984676CN"];
 serv.getItem(barcodes, function(err, result) {
 	if (err) {
 		return console.log(err);

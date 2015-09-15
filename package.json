@@ -12,9 +12,17 @@
 		"lodash": "~2.4.1",
 		"soap": "0.9.x"
 	},
-	"main": "index.js",
+	"main": "./index.js",
+	"directories": {
+    	"lib": "./lib"
+  	},
 	"engines": {
     	"node": ">= 0.12.x"
   	},
+  	"keywords": [
+    	"thailand-post",
+    	"thailand",
+    	"thai"
+  	],
 	"license": "MIT"
 }
