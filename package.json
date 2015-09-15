@@ -1,11 +1,20 @@
 {
 	"name": "thailand-post",
-	"description": "unofficial API for Thailand Post",
+	"description": "unofficial SDK for Thailand Post",
 	"version": "0.0.0",
-	"author": "Punnawut Khowkittipaiboon <itsKaynine>",
+	"author": "Punnawut Khowkittipaiboon <me@itskaynine.com>",
+	"repository": {
+    	"type": "git",
+    	"url": "https://github.com/itsKaynine/thailand-post"
+  	},
 	"dependencies": {
 		"dateformat": "*",
 		"lodash": "~2.4.1",
 		"soap": "*"
-	}
+	},
+	"main": "index.js",
+	"engines": {
+    	"node": ">= 0.8.x"
+  	},
+	"license": "MIT"
 }
