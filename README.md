@@ -2,6 +2,10 @@
 
 An unofficial Node SDK for Thailand Post that consumes the official API.
 
+> **WARNING**
+> 
+> This project contains information that were reversed-engineered from the official iOS App.   
+> In order to legally use the official API, you must [send a request](http://www.thailandpost.co.th/download/Web%20Service.pdf) to Thailand Post.
 
 ## Installation
 
