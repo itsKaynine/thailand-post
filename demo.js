@@ -1,6 +1,6 @@
 "use strict";
 
-var TrackService = require('./');
+var TrackService = require('./').TrackService;
 
 new TrackService().init(function(err, serv) {
 	serv.getItem("EN331755897TH", function(err, result) {

@@ -1,3 +1,5 @@
 "use strict";
 
-module.exports = require('./lib/TrackService');
+module.exports = {
+	TrackService: require('./lib/TrackService')
+};

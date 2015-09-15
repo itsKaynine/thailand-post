@@ -11,10 +11,10 @@ $ [sudo] npm install thailand-post
 
 ## Usage
 
-First you need to create an instance of the SDK.
+First you need to import the module and create an instance of the service.
 
 ```js
-var TrackService = require('thailand-post');
+var TrackService = require('thailand-post').TrackService;
 
 new TrackService().init(function(err, serv) {
 	// ... your code here
@@ -27,6 +27,7 @@ Single item
 
 ```js
 var barcode = "EN331755897TH";
+
 serv.getItem(barcode, function(err, result) {
 	if (err) {
 		return console.log(err);
@@ -40,6 +41,7 @@ Multiple items
 
 ```js
 var barcodes = ["EN331755897TH", "RI598984676CN"];
+
 serv.getItem(barcodes, function(err, result) {
 	if (err) {
 		return console.log(err);
