@@ -15,7 +15,7 @@ $ [sudo] npm install thailand-post
 
 ## Usage
 
-First you need to import the module and create an instance of the service.
+First, you need to import the module and create an instance of the service.
 
 ```js
 var TrackService = require('thailand-post').TrackService;
