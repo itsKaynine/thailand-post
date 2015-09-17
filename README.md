@@ -54,3 +54,29 @@ serv.getItem(barcodes, function(err, result) {
 	console.log(result);
 });
 ```
+
+
+## Advanced Usage
+
+This is for anyone who would like to access the SOAP API directly.
+
+Visit the official Thailand Post [SOAP API documentation](https://track.thailandpost.co.th/TTSPSW/track.asmx) for more information on each operation.
+
+### Track items
+
+```js
+var args = {
+	user: serv.defaultArgs.user,
+	password: serv.defaultArgs.password,
+	lang: serv.defaultArgs.lang,
+	Barcodes: "EN331755897TH,RI598984676CN"
+};
+
+serv.client.GetItems(args, function(err, result) {
+	if (err) {
+		return console.log(err);
+	}
+
+	console.log(result);
+});
+```
