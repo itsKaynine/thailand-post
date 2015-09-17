@@ -7,11 +7,13 @@ An **unofficial** Node SDK for **Thailand Post** that consumes the official API.
 > This project contains information that was obtained from reverse-engineering.   
 > In order to legally use the official API, you must [send a request](http://www.thailandpost.co.th/download/Web%20Service.pdf) to Thailand Post.
 
+
 ## Installation
 
 ```
 $ [sudo] npm install thailand-post
 ```
+
 
 ## Usage
 
@@ -47,6 +49,61 @@ Multiple items
 var barcodes = ["EN331755897TH", "RI598984676CN"];
 
 serv.getItem(barcodes, function(err, result) {
+	if (err) {
+		return console.log(err);
+	}
+
+	console.log(result);
+});
+```
+
+### Get shipping rates
+
+```js
+var country = "TH"; // Thailand
+var weight = 30; // 30g
+
+serv.getRates(country, weight, function(err, result) {
+	if (err) {
+		return console.log(err);
+	}
+
+	console.log(result);
+});
+```
+
+### Get all branches
+
+```js
+serv.getAllLocations(function(err, result) {
+	if (err) {
+		return console.log(err);
+	}
+
+	console.log(result);
+});
+```
+
+### Search for a branch
+
+```js
+var keyword = "คลอง";
+
+serv.searchLocation(keyword, function(err, result) {
+	if (err) {
+		return console.log(err);
+	}
+
+	console.log(result);
+});
+```
+
+### Get countries
+
+You can then use the country code to find shipping rates.
+
+```js
+serv.getCountries(function(err, result) {
 	if (err) {
 		return console.log(err);
 	}
