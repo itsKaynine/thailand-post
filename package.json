@@ -1,7 +1,7 @@
 {
 	"name": "thailand-post",
 	"description": "an unofficial Node SDK for Thailand Post that consumes the official API",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"author": "Punnawut Khowkittipaiboon <me@itskaynine.com>",
 	"repository": {
     	"type": "git",
