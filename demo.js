@@ -59,11 +59,11 @@ new TrackService().init(function(err, serv) {
 		console.log(result);
 	});
 
-	// serv.getClosestLocation("13.11143", "101.154250", function(err, result) {
-	// 	if (err) {
-	// 		return console.log(err);
-	// 	}
+	serv.getNearbyLocations("13.11143,101.154250", 10, function(err, result) {
+		if (err) {
+			return console.log(err);
+		}
 
-	// 	console.log(result);
-	// });
+		console.log(result);
+	});
 });
