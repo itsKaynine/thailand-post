@@ -28,7 +28,7 @@ var trackService = new TrackService({
 
 trackService.init(function(err, serv) {
 	// ... your code here
-	
+
 	// serv.getItem(...)
 });
 ```
@@ -96,6 +96,22 @@ serv.getAllLocations(function(err, result) {
 var keyword = "คลอง";
 
 serv.searchLocation(keyword, function(err, result) {
+	if (err) {
+		return console.log(err);
+	}
+
+	console.log(result);
+});
+```
+
+### Get nearby locations
+
+```js
+var latitude = 13.11143;
+var longitude = 101.154250;
+var numOfResults = 10;
+
+serv.getNearbyLocations(latitude, longitude, numOfResults, function(err, result) {
 	if (err) {
 		return console.log(err);
 	}
