@@ -22,8 +22,14 @@ First, you need to import the module and create an instance of the service.
 ```js
 var TrackService = require('thailand-post').TrackService;
 
-new TrackService().init(function(err, serv) {
+var trackService = new TrackService({
+	lang: "EN"	// either EN or TH
+});
+
+trackService.init(function(err, serv) {
 	// ... your code here
+	
+	// serv.getItem(...)
 });
 ```
 
@@ -48,7 +54,7 @@ Multiple items
 ```js
 var barcodes = ["EN331755897TH", "RI598984676CN"];
 
-serv.getItem(barcodes, function(err, result) {
+serv.getItems(barcodes, function(err, result) {
 	if (err) {
 		return console.log(err);
 	}

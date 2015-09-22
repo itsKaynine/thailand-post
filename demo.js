@@ -2,13 +2,18 @@
 
 var TrackService = require('./').TrackService;
 
-new TrackService().init(function(err, serv) {
+
+var trackService = new TrackService({
+	lang: "en"
+});
+
+trackService.init(function(err, serv) {
 	serv.getItem("EN331755897TH", function(err, result) {
 		if (err) {
 			return console.log(err);
 		}
 
-		console.log(result);
+		console.log(result.ItemsData.Items[0]);
 	});
 
 	serv.getCountries(function(err, result) {
