@@ -1,7 +1,7 @@
 {
 	"name": "thailand-post",
 	"description": "an unofficial Node SDK for Thailand Post that consumes the official API",
-	"version": "0.1.2",
+	"version": "1.0.0",
 	"author": "Punnawut Khowkittipaiboon <me@itskaynine.com>",
 	"repository": {
     	"type": "git",
@@ -23,7 +23,9 @@
     	"thailand-post",
     	"thailand",
     	"thai",
-    	"ems"
+    	"ems",
+    	"api",
+    	"sdk"
   	],
 	"license": "MIT"
 }
