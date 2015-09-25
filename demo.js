@@ -4,7 +4,7 @@ var TrackService = require('./').TrackService;
 
 
 var trackService = new TrackService({
-	lang: "en"
+	lang: "EN"
 });
 
 trackService.init(function(err, serv) {
