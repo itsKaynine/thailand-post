@@ -1,31 +1,32 @@
 {
-	"name": "thailand-post",
-	"description": "an unofficial Node SDK for Thailand Post that consumes the official API",
-	"version": "2.0.0",
-	"author": "Punnawut Khowkittipaiboon <me@itskaynine.com>",
-	"repository": {
-    	"type": "git",
-    	"url": "https://github.com/itsKaynine/thailand-post"
-  	},
-	"dependencies": {
-		"dateformat": "1.0.x",
-		"lodash": "~2.4.1",
-		"soap": "0.9.x"
-	},
-	"main": "./index.js",
-	"directories": {
-    	"lib": "./lib"
-  	},
-	"engines": {
-    	"node": ">= 0.12.x"
-  	},
-  	"keywords": [
-    	"thailand-post",
-    	"thailand",
-    	"thai",
-    	"ems",
-    	"api",
-    	"sdk"
-  	],
-	"license": "MIT"
+  "name": "thailand-post",
+  "description": "an unofficial Node SDK for Thailand Post that consumes the official API",
+  "version": "2.0.0",
+  "author": "Punnawut Khowkittipaiboon <me@itskaynine.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/itsKaynine/thailand-post"
+  },
+  "dependencies": {
+    "lodash": "~2.4.1",
+    "moment": "^2.17.1",
+    "moment-timezone": "^0.5.11",
+    "soap": "0.9.x"
+  },
+  "main": "./index.js",
+  "directories": {
+    "lib": "./lib"
+  },
+  "engines": {
+    "node": ">= 0.12.x"
+  },
+  "keywords": [
+    "thailand-post",
+    "thailand",
+    "thai",
+    "ems",
+    "api",
+    "sdk"
+  ],
+  "license": "MIT"
 }
